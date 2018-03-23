@@ -45,6 +45,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/hooks/result-review/</loc>
+     <lastmod>2018-03-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
