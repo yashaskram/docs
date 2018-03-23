@@ -4,23 +4,53 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-11-10</lastmod>
+     <lastmod>2018-03-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
+        
     <url>
-     <loc>/specification/</loc>
-     <lastmod>2017-11-10</lastmod>
+     <loc>/specification/1.0/</loc>
+     <lastmod>2018-03-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     
 
     
+        
     <url>
      <loc>/hooks/</loc>
-     <lastmod>2017-11-10</lastmod>
+     <lastmod>2018-03-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/hooks/patient-view/</loc>
+     <lastmod>2018-03-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/hooks/medication-prescribe/</loc>
+     <lastmod>2018-03-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/hooks/order-review/</loc>
+     <lastmod>2018-03-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>/quickstart/</loc>
+     <lastmod>2018-03-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,7 +58,7 @@
     
     <url>
      <loc>/examples/</loc>
-     <lastmod>2017-11-10</lastmod>
+     <lastmod>2018-03-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -36,7 +66,7 @@
     
     <url>
      <loc>/community/</loc>
-     <lastmod>2017-11-10</lastmod>
+     <lastmod>2018-03-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

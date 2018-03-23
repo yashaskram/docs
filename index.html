@@ -127,7 +127,7 @@
   
 
 
-  <a href="https://github.com/cds-hooks/docs/" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/yashaskram/docs/" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -173,7 +173,7 @@
   
 
 
-  <a href="https://github.com/cds-hooks/docs/" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/yashaskram/docs/" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -237,13 +237,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cds-decisions" title="CDS Decisions" class="md-nav__link">
-    CDS Decisions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#try-it" title="Try it!" class="md-nav__link">
     Try it!
   </a>
@@ -264,10 +257,106 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="specification/" title="Specification" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
       Specification
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Specification
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="specification/1.0/" title="1.0" class="md-nav__link">
+      1.0
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Hooks
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Hooks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="hooks/" title="Hooks" class="md-nav__link">
+      Hooks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="hooks/patient-view/" title="patient-view" class="md-nav__link">
+      patient-view
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="hooks/medication-prescribe/" title="medication-prescribe" class="md-nav__link">
+      medication-prescribe
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="hooks/order-review/" title="order-review" class="md-nav__link">
+      order-review
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -277,8 +366,8 @@
 
 
   <li class="md-nav__item">
-    <a href="hooks/" title="Hooks" class="md-nav__link">
-      Hooks
+    <a href="quickstart/" title="Quick Start" class="md-nav__link">
+      Quick Start
     </a>
   </li>
 
@@ -342,13 +431,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cds-decisions" title="CDS Decisions" class="md-nav__link">
-    CDS Decisions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#try-it" title="Try it!" class="md-nav__link">
     Try it!
   </a>
@@ -369,7 +451,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/cds-hooks/docs/edit/master/docs/index.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/yashaskram/docs/edit/master/docs/index.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
@@ -406,23 +488,11 @@ materials (<em>app link card</em>). A user sees these cards — one or more of e
 <p><em>suggestion card</em>: provides a specific suggestion for which the EHR renders a button that the user can click to accept. Clicking automatically populates the suggested change into the EHR's UI.</p>
 </li>
 <li>
-<p><em>app link card</em>: provides a link to an app (often a SMART app) where the user can supply details, step through a flowchart, or do anything else required to help reach an informed decision. When the user has finished, flow returns to the EHR. At that point, the <strong>EHR re-triggers the initial CDS hook</strong>. The re-triggering may result in different cards, and may also include <strong>decisions</strong> (see below).</p>
+<p><em>app link card</em>: provides a link to an app (often a SMART app) where the user can supply details, step through a flowchart, or do anything else required to help reach an informed decision.</p>
 </li>
 </ul>
-<h2 id="cds-decisions">CDS Decisions<a class="headerlink" href="#cds-decisions" title="Permanent link">&para;</a></h2>
-<p>In addition to cards, a CDS service may also return <strong>decisions</strong> — but only
-after a user has interacted with the service via an <em>app link card</em>.
-Returning a decision allows the the CDS service to communicate the user's choices  to the EHR without displaying an additional card.  For
-example, a user might launch a hypertension management app, and upon
-returning to the EHR's prescription page she expects her new blood pressure
-prescription to "just be there". By returning a decision <em>instead of a card</em>,
-the CDS service achieves this expected behavior. (<em>Note:</em> To return a
-decision after a user interaction, the CDS service must maintain state
-associated with the request's <code>hookInstance</code>;
-when the EHR invokes the hook for a second time with the same
-<code>hookInstance</code>, the service can respond with decisions on as well as cards.)</p>
 <h2 id="try-it">Try it!<a class="headerlink" href="#try-it" title="Permanent link">&para;</a></h2>
-<p>You can try CDS Hooks in our test harness at <strong><a href="http://sandbox.cds-hooks.org">http://sandbox.cds-hooks.org</a></strong></p>
+<p>You can try CDS Hooks in our Sandbox at <strong><a href="http://sandbox.cds-hooks.org">http://sandbox.cds-hooks.org</a></strong></p>
                 
                   
                 
@@ -442,13 +512,13 @@ when the EHR invokes the hook for a second time with the same
       <nav class="md-footer-nav__inner md-grid">
         
         
-          <a href="specification/" title="Specification" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="specification/1.0/" title="1.0" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Specification
+                1.0
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -475,7 +545,7 @@ when the EHR invokes the hook for a second time with the same
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-      <a href="https://github.com/cds-hooks" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/yashaskram" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
