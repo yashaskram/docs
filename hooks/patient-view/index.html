@@ -279,6 +279,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../template/" title="new-hook-template" class="md-nav__link">
+      new-hook-template
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -308,8 +320,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-description" title="Workflow description" class="md-nav__link">
-    Workflow description
+  <a href="#workflow" title="Workflow" class="md-nav__link">
+    Workflow
   </a>
   
 </li>
@@ -331,6 +343,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-log" title="Change Log" class="md-nav__link">
+    Change Log
+  </a>
   
 </li>
       
@@ -441,8 +460,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-description" title="Workflow description" class="md-nav__link">
-    Workflow description
+  <a href="#workflow" title="Workflow" class="md-nav__link">
+    Workflow
   </a>
   
 </li>
@@ -467,6 +486,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#change-log" title="Change Log" class="md-nav__link">
+    Change Log
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -485,7 +511,25 @@
                 
                 
                 <h1 id="patient-view"><code>patient-view</code><a class="headerlink" href="#patient-view" title="Permanent link">&para;</a></h1>
-<h2 id="workflow-description">Workflow description<a class="headerlink" href="#workflow-description" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metadata</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>specificationVersion</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>hookVersion</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
 <p>The user has just opened a patient's record.</p>
 <h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
 <p>The patient whose record was opened, including their encounter, if applicable.</p>
@@ -493,8 +537,9 @@
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
 <th>Prefetch Token</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -503,13 +548,15 @@
 <td><code>patientId</code></td>
 <td>REQUIRED</td>
 <td>Yes</td>
-<td><em>string</em>. The FHIR <code>Patient.id</code> of the current patient in context</td>
+<td><em>string</em></td>
+<td>The FHIR <code>Patient.id</code> of the current patient in context</td>
 </tr>
 <tr>
 <td><code>encounterId</code></td>
 <td>OPTIONAL</td>
 <td>Yes</td>
-<td><em>string</em>. The FHIR <code>Encounter.id</code> of the current encounter in context</td>
+<td><em>string</em></td>
+<td>The FHIR <code>Encounter.id</code> of the current encounter in context</td>
 </tr>
 </tbody>
 </table>
@@ -531,6 +578,22 @@
 <span class="p">}</span>
 </pre></div>
 </td></tr></table>
+
+<h2 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>Initial Release</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
@@ -549,7 +612,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../" title="Hooks" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../template/" title="new-hook-template" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -558,7 +621,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Hooks
+                new-hook-template
               </span>
             </div>
           </a>

@@ -334,6 +334,81 @@
     Hook Definition Format
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hook-name-expressed-as-noun-verb" title="hook-name-expressed-as-noun-verb" class="md-nav__link">
+    hook-name-expressed-as-noun-verb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow" title="Workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context" title="Context" class="md-nav__link">
+    Context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fhir-resources-in-context" title="FHIR resources in context" class="md-nav__link">
+    FHIR resources in context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes-to-the-definition-of-a-hook-hook-versioning" title="Changes to the Definition of a Hook (Hook Versioning)" class="md-nav__link">
+    Changes to the Definition of a Hook (Hook Versioning)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specification-version" title="Specification Version" class="md-nav__link">
+    Specification Version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hook-version" title="Hook Version" class="md-nav__link">
+    Hook Version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-log" title="Change Log" class="md-nav__link">
+    Change Log
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -342,6 +417,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="template/" title="new-hook-template" class="md-nav__link">
+      new-hook-template
+    </a>
   </li>
 
         
@@ -493,6 +580,81 @@
     Hook Definition Format
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hook-name-expressed-as-noun-verb" title="hook-name-expressed-as-noun-verb" class="md-nav__link">
+    hook-name-expressed-as-noun-verb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow" title="Workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context" title="Context" class="md-nav__link">
+    Context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fhir-resources-in-context" title="FHIR resources in context" class="md-nav__link">
+    FHIR resources in context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes-to-the-definition-of-a-hook-hook-versioning" title="Changes to the Definition of a Hook (Hook Versioning)" class="md-nav__link">
+    Changes to the Definition of a Hook (Hook Versioning)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specification-version" title="Specification Version" class="md-nav__link">
+    Specification Version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hook-version" title="Hook Version" class="md-nav__link">
+    Hook Version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-log" title="Change Log" class="md-nav__link">
+    Change Log
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -515,13 +677,13 @@
                 <h1 id="hooks">Hooks<a class="headerlink" href="#hooks" title="Permanent link">&para;</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>As a specification, CDS Hooks does not prescribe a default or required set of hooks for implementers. Rather, the set of hooks defined here are merely a set of common use cases that were used to aid in the creation of CDS Hooks. The set of hooks defined here are not a closed set; anyone is able to define new hooks to fit their use cases.</p>
-<p>New hooks should be added to the CDS <a href="https://github.com/cds-hooks/docs/wiki/Proposed-Hooks">proposed hooks Wiki page</a> according to the format described below.</p>
+<p>New hooks should be added to the CDS <a href="https://github.com/cds-hooks/docs/wiki/Proposed-Hooks">proposed hooks Wiki page</a> according to the format described below. A <a href="./template">template</a> hook definition is included as a starting point for new hooks.</p>
 <p>Note that each hook (e.g. <code>medication-prescribe</code>) represents something the user is doing in the EHR and multiple CDS Services might respond to the same hook (e.g. a "price check" service and a "prior authorization" service might both respond to <code>medication-prescribe</code>).</p>
 <h2 id="hook-context-and-prefetch">Hook context and prefetch<a class="headerlink" href="#hook-context-and-prefetch" title="Permanent link">&para;</a></h2>
 <h3 id="whats-the-difference">What's the difference?<a class="headerlink" href="#whats-the-difference" title="Permanent link">&para;</a></h3>
 <p>A discrete user workflow or action within the EHR often naturally includes a set of contextual data. This context can contain both required and optional data and is specific to a hook. Additionally, the context data is relevant to most CDS Services subscribing to the hook.</p>
-<p>When the context data relates to a FHIR data type, it is important not to conflate context and prefetch. For instance, imagine a hook for opening a patient's chart. This hook should include the FHIR identifier of the patient whose chart is being opened, not the full patient FHIR resource. In this case, the FHIR identifier of the patient is appropriate as CDS Services may not be interested in details about the patient resource but instead other data related to this patient. Or, a CDS Service may only need the full patient resource in certain scenarios. Therefore, including the full patient resource in context would be unnecessary. For CDS Services that want the full patient resource, they can request it to be prefetched or fetch it as need from the FHIR server.</p>
-<p>Consider another hook for when a new patient is being registered. In this case, it would likely be appropriate for the context to contain the full FHIR resource for the patient being registered as the patient may not be yet recorded in the EHR (and thus not available from the FHIR server) and CDS Services using this hook would predominately be interested in the details of the patient being registered.</p>
+<p>When the context data relates to a FHIR data type, it is important not to conflate context and prefetch. For instance, imagine a hook for opening a patient's chart. This hook should include the FHIR identifier of the patient whose chart is being opened, not the full patient FHIR resource. In this case, the FHIR identifier of the patient is appropriate as CDS Services may not be interested in details about the patient resource but instead other data related to this patient. Or, a CDS Service may only need the full patient resource in certain scenarios. Therefore, including the full patient resource in context would be unnecessary. For CDS Services that want the full patient resource, they can request it to be prefetched or fetch it as needed from the FHIR server.</p>
+<p>Consider another hook for when a new patient is being registered. In this case, it would likely be appropriate for the context to contain the full FHIR resource for the patient being registered as the patient may not be yet recorded in the EHR (and thus not available from the FHIR server) and CDS Services using this hook would predominantly be interested in the details of the patient being registered.</p>
 <p>Additionally, consider a PGX CDS Service and a Zika screening CDS Service, each of which is subscribed to the same hook. The context data specified by their shared hook should contain data relevant to both CDS Services; however, each service will have other specific data needs that will necessitate disparate prefetch requests. For instance, the PGX CDS Service likely is interested in genomics data whereas the Zika screening CDS Service will want Observations.</p>
 <p>In summary, context is data specific to a hook and universally relevant to all CDS Services subscribed to said hook. Prefetch data is unique to individual CDS Services and supplements the data from context.</p>
 <h3 id="prefetch-tokens">Prefetch tokens<a class="headerlink" href="#prefetch-tokens" title="Permanent link">&para;</a></h3>
@@ -596,7 +758,8 @@
 16
 17
 18
-19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="s2">&quot;context&quot;</span> <span class="err">:</span> <span class="p">{</span>
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="s2">&quot;context&quot;</span> <span class="err">:</span> <span class="p">{</span>
   <span class="nt">&quot;patientId&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
   <span class="nt">&quot;encounterId&quot;</span><span class="p">:</span> <span class="s2">&quot;456&quot;</span><span class="p">,</span>
   <span class="nt">&quot;patient&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -615,60 +778,76 @@
     <span class="nt">&quot;gender&quot;</span><span class="p">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
     <span class="nt">&quot;birthDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-08-12&quot;</span>
   <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
 <h2 id="hook-definition-format">Hook Definition Format<a class="headerlink" href="#hook-definition-format" title="Permanent link">&para;</a></h2>
-<p>Hooks are defined in the following format:</p>
-<hr />
-<h1 id="hook-name-expressed-as-noun-verb"><code>hook-name-expressed-as-noun-verb</code><a class="headerlink" href="#hook-name-expressed-as-noun-verb" title="Permanent link">&para;</a></h1>
-<p>The name of the hook SHOULD succinctly and clearly describes the activity or event. Hook names are unique so hook creators SHOULD take care to ensure newly proposed hooks do not conflict with an existing hook name. Hook creators MAY choose to name their hook with a URI (e.g. <code>https://example.org/hooks/patient-transmogrify</code>) if the hook is specific to an organization.</p>
+<p>Hooks are defined in the following format.</p>
+<h3 id="hook-name-expressed-as-noun-verb"><code>hook-name-expressed-as-noun-verb</code><a class="headerlink" href="#hook-name-expressed-as-noun-verb" title="Permanent link">&para;</a></h3>
+<p>The name of the hook SHOULD succinctly and clearly describe the activity or event. Hook names are unique so hook creators SHOULD take care to ensure newly proposed hooks do not conflict with an existing hook name. Hook creators MAY choose to name their hook with a URI (e.g. <code>https://example.org/hooks/patient-transmogrify</code>) if the hook is specific to an organization.</p>
 <p>When naming hooks, the name should start with the subject (noun) of the hook and be followed by the activity (verb). For example, <code>patient-view</code> (not <code>view-patient</code>) or <code>medication-prescribe</code> (not <code>prescribe-medication</code>).</p>
-<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
+<h3 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h3>
 <p>Describe when this hook occurs in a workflow. Hook creators SHOULD include as much detail and clarity as possible to minimize any ambiguity or confusion amongst implementors.</p>
-<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<h3 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h3>
 <p>Describe the set of contextual data used by this hook. Only data logically and necessarily associated with the purpose of this hook should be represented in context.</p>
-<p>All fields defined by the hook's context MUST be defined in a table where each field is described by three attributes:</p>
+<p>All fields defined by the hook's context MUST be defined in a table where each field is described by the following attributes:</p>
 <ul>
-<li>Field: The name of the property in the context JSON object.</li>
-<li>Priority: A fixed value of either <code>REQUIRED</code> or <code>OPTIONAL</code></li>
-<li>Prefetch Token: A fixed value of either <code>Yes</code> or <code>No</code>, indicating whether this field can be tokenized in a prefetch template.</li>
-<li>Description: The value of the property in the context JSON object, expressed both as the JSON data type as well as a functional description of the value. If this value can change according to the FHIR version in use, the description SHOULD describe the value for each supported FHIR version.</li>
+<li>Field: The name of the field in the context JSON object.</li>
+<li>Optionality: A string value of either <code>REQUIRED</code> or <code>OPTIONAL</code></li>
+<li>Prefetch Token: A string value of either <code>Yes</code> or <code>No</code>, indicating whether this field can be tokenized in a prefetch template.</li>
+<li>Type: The type of the field in the context JSON object, expressed as the JSON type, or the name of a FHIR Resource type. Valid types are <em>boolean</em>, <em>string</em>, <em>number</em>, <em>object</em>, <em>array</em>, or the name of a FHIR resource type. When a field can be of multiple types, type names MUST be separated by a <em>pipe</em> (<code>|</code>)</li>
+<li>Description: A functional description of the context value. If this value can change according to the FHIR version in use, the description SHOULD describe the value for each supported FHIR version.</li>
 </ul>
-<p>While a context with FHIR data SHOULD document any differences in the data between FHIR versions, when a context object is valued, all FHIR resources in context MUST be based on the same FHIR version.</p>
+<h3 id="fhir-resources-in-context">FHIR resources in context<a class="headerlink" href="#fhir-resources-in-context" title="Permanent link">&para;</a></h3>
+<p>When potentially multiple FHIR resources value a single context field, these resources SHOULD be formatted as a FHIR Bundle. For example, multiple FHIR resources are necessary to describe all of the orders under review in the <code>order-review</code> hook's <code>orders</code> field. Hook definitions SHOULD prefer the use of FHIR Bundles over other bespoke data structures.</p>
+<p>Often, context is populated with in-progress or in-memory data that may not yet be available from the FHIR server. For example, <code>medication-prescribe</code> and <code>order-review</code> define context fields containing FHIR resources that represent draft resources. In this case,  the EHR should only provide these draft resources and not the full set of orders available from its FHIR server. The CDS service MAY pre-fetch or query for FHIR resources with other statuses.</p>
+<p>All FHIR resources in context MUST be based on the same FHIR version.</p>
 <table>
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
 <th>Prefetch Token</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>someProperty</code></td>
+<td><code>someField</code></td>
 <td>REQUIRED</td>
 <td>Yes</td>
-<td><em>string</em> A clear description of the value of this field.</td>
+<td><em>string</em></td>
+<td>A clear description of the value of this field.</td>
 </tr>
 <tr>
-<td><code>anotherProperty</code></td>
+<td><code>anotherField</code></td>
 <td>OPTIONAL</td>
 <td>No</td>
-<td><em>number</em> A clear description of the value of this field.</td>
+<td><em>number</em></td>
+<td>A clear description of the value of this field.</td>
 </tr>
 <tr>
 <td><code>someObject</code></td>
 <td>REQUIRED</td>
 <td>No</td>
-<td><em>object</em> A clear description of the value of this field.</td>
+<td><em>object</em></td>
+<td>A clear description of the value of this field.</td>
 </tr>
 <tr>
 <td><code>moreObjects</code></td>
 <td>OPTIONAL</td>
 <td>No</td>
-<td><em>array</em> A clear description of the items in this array.</td>
+<td><em>array</em></td>
+<td>A clear description of the items in this array.</td>
+</tr>
+<tr>
+<td><code>allFHIR</code></td>
+<td>OPTIONAL</td>
+<td>No</td>
+<td><em>object</em></td>
+<td>A FHIR Bundle of the following FHIR resources using a specific version of FHIR.</td>
 </tr>
 </tbody>
 </table>
@@ -683,8 +862,8 @@
 7
 8
 9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="s2">&quot;context&quot;</span><span class="err">:</span><span class="p">{</span>
-  <span class="nt">&quot;someProperty&quot;</span><span class="p">:</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;anotherProperty&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span>
+  <span class="nt">&quot;someField&quot;</span><span class="p">:</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;anotherField&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span>
   <span class="nt">&quot;someObject&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span>
     <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">1</span>
@@ -695,6 +874,97 @@
 </td></tr></table>
 
 <p>If the context contains FHIR data, hook creators SHOULD include examples across multiple versions of FHIR if differences across FHIR versions are possible.</p>
+<h2 id="changes-to-the-definition-of-a-hook-hook-versioning">Changes to the Definition of a Hook (Hook Versioning)<a class="headerlink" href="#changes-to-the-definition-of-a-hook-hook-versioning" title="Permanent link">&para;</a></h2>
+<p>Each hook MUST include a Metadata table at the beginning of the hook with the specification version and hook version as described in the following sections.</p>
+<h3 id="specification-version">Specification Version<a class="headerlink" href="#specification-version" title="Permanent link">&para;</a></h3>
+<p>Because hooks are such an integral part of the CDS Hooks specification, hook definitions are associated with specific versions of the specification. The hook definition MUST include the version (or versions) of the CDS Hooks specification that it is defined to work with.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>specificationVersion | 1.0
+</pre></div>
+</td></tr></table>
+
+<p>Because the specification itself follows semantic versioning, the version specified here is a minimum specification version. In other words, a hook defined to work against 1.0 should continue to work against the 1.1 version of CDS Hooks. However, a hook that specifies 1.1 would not be expected to work in a CDS Hooks 1.0 environment.</p>
+<h3 id="hook-version">Hook Version<a class="headerlink" href="#hook-version" title="Permanent link">&para;</a></h3>
+<p>To enable tracking of changes to hook definitions, each hook MUST include a version indicator, expressed as a string.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>hookVersion | 1.0
+</pre></div>
+</td></tr></table>
+
+<p>To help ensure the stability of CDS Hooks implementations, once a hook has been defined (i.e. published with a particular name so that it is available for implementation), breaking changes MUST NOT be made. This means that fields can be added and restrictions relaxed, but fields cannot be changed, and restrictions cannot be tightened.</p>
+<p>In particular, the semantics of a hook (i.e. the meaning of the hook from the perspective of the EHR) cannot be changed. EHRs that implement specific hooks are responsible for ensuring the hook is called from the appropriate point in the workflow.</p>
+<p>Note that this means that the name of the hook carries major version semantics. That is not to say that the name must include the major version, that is left as a choice by users of the specification. Clean hook names increase usability. Ideally, an active hook name accurately defines the meaning and workflow of the hook in actual words.</p>
+<p>The following types of changes are possible for a hook definition:</p>
+<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Version Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clarifications and corrections to documentation that do not impact functionality</td>
+<td>Patch</td>
+</tr>
+<tr>
+<td>Change of prefetch token status of an existing context field</td>
+<td>Patch</td>
+</tr>
+<tr>
+<td>Addition of a new field to the context</td>
+<td>Minor</td>
+</tr>
+<tr>
+<td>Change of optionality of an existing context field</td>
+<td>Major</td>
+</tr>
+<tr>
+<td>Change of type or cardinality of an existing context field</td>
+<td>Major</td>
+</tr>
+<tr>
+<td>Removal of an existing context field</td>
+<td>Major</td>
+</tr>
+<tr>
+<td>Change of semantics of an existing context field</td>
+<td>Major</td>
+</tr>
+<tr>
+<td>Change of semantics of the hook</td>
+<td>Major</td>
+</tr>
+</tbody>
+</table>
+<p>When a major change is made, the hook definition MUST be published under a new name. When a minor or patch change is made, the hook version MUST be updated. Hook definers MUST use <a href="https://semver.org/">semantic versioning</a> to communicate the impact of changes in an industry standard way.</p>
+<h3 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h3>
+<p>Changes made to a hook MUST be documented in a change log to ensure hook consumers can track what has been changed over the life of a hook. The change log MUST contain the following elements:</p>
+<ul>
+<li>Version: The version of the change</li>
+<li>Description: A description of the change and its impact</li>
+</ul>
+<p>For example:</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.1</td>
+<td>Added new context variable</td>
+</tr>
+<tr>
+<td>1.0.1</td>
+<td>Clarified context variable usage</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>Initial Release</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
@@ -728,13 +998,13 @@
           </a>
         
         
-          <a href="patient-view/" title="patient-view" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="template/" title="new-hook-template" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                patient-view
+                new-hook-template
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

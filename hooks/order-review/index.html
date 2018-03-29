@@ -281,6 +281,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../template/" title="new-hook-template" class="md-nav__link">
+      new-hook-template
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../patient-view/" title="patient-view" class="md-nav__link">
       patient-view
     </a>
@@ -332,8 +344,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-description" title="Workflow description" class="md-nav__link">
-    Workflow description
+  <a href="#workflow" title="Workflow" class="md-nav__link">
+    Workflow
   </a>
   
 </li>
@@ -355,6 +367,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-log" title="Change Log" class="md-nav__link">
+    Change Log
+  </a>
   
 </li>
       
@@ -441,8 +460,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-description" title="Workflow description" class="md-nav__link">
-    Workflow description
+  <a href="#workflow" title="Workflow" class="md-nav__link">
+    Workflow
   </a>
   
 </li>
@@ -467,6 +486,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#change-log" title="Change Log" class="md-nav__link">
+    Change Log
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -485,16 +511,35 @@
                 
                 
                 <h1 id="order-review"><code>order-review</code><a class="headerlink" href="#order-review" title="Permanent link">&para;</a></h1>
-<h2 id="workflow-description">Workflow description<a class="headerlink" href="#workflow-description" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metadata</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>specificationVersion</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>hookVersion</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
 <p>The user is in the process of reviewing a set of orders to sign.</p>
 <h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
-<p>The set of orders being reviewed for signature on-screen. All FHIR resources in this context MUST be based on the same FHIR version.</p>
+<p>The set of orders being reviewed for signature on-screen. All FHIR resources in this <em>context</em> MUST be based on the same FHIR version.</p>
 <table>
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
 <th>Prefetch Token</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -503,19 +548,22 @@
 <td><code>patientId</code></td>
 <td>REQUIRED</td>
 <td>Yes</td>
-<td><em>string</em>.  The FHIR <code>Patient.id</code> of the current patient in context</td>
+<td><em>string</em></td>
+<td>The FHIR <code>Patient.id</code> of the current patient in context</td>
 </tr>
 <tr>
 <td><code>encounterId</code></td>
 <td>OPTIONAL</td>
 <td>Yes</td>
-<td><em>string</em>.  The FHIR <code>Encounter.id</code> of the current encounter in context</td>
+<td><em>string</em></td>
+<td>The FHIR <code>Encounter.id</code> of the current encounter in context</td>
 </tr>
 <tr>
 <td><code>orders</code></td>
 <td>REQUIRED</td>
 <td>No</td>
-<td><em>array</em> DSTU2 - Array of MedicationOrder, DiagnosticOrder, DeviceUseRequest, ReferralRequest, ProcedureRequest, NutritionOrder, VisionPrescription <br/> <em>array</em> STU3 - Array of MedicationRequest, ReferralRequest, ProcedureRequest, NutritionOrder, VisionPrescription</td>
+<td><em>array</em></td>
+<td>DSTU2 - Array of MedicationOrder, DiagnosticOrder, DeviceUseRequest, ReferralRequest, ProcedureRequest, NutritionOrder, VisionPrescription <br/> STU3 - Array of MedicationRequest, ReferralRequest, ProcedureRequest, NutritionOrder, VisionPrescription</td>
 </tr>
 </tbody>
 </table>
@@ -654,143 +702,173 @@
 132
 133
 134
-135</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="s2">&quot;context&quot;</span><span class="err">:</span><span class="p">{</span>
-  <span class="nt">&quot;patientId&quot;</span> <span class="p">:</span> <span class="s2">&quot;1288992&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;encounterId&quot;</span> <span class="p">:</span> <span class="s2">&quot;89284&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;orders&quot;</span><span class="p">:[</span>  
-    <span class="p">{</span>  
-      <span class="nt">&quot;resourceType&quot;</span><span class="p">:</span><span class="s2">&quot;NutritionOrder&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;nest-patient-1-NUTR1&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;patient&quot;</span><span class="p">:{</span>  
-        <span class="nt">&quot;reference&quot;</span><span class="p">:</span><span class="s2">&quot;Patient/nest-patient-1&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Tomy Francis&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;orderer&quot;</span><span class="p">:{</span>  
-        <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Dr Adam Careful&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;identifier&quot;</span><span class="p">:[</span>  
-        <span class="p">{</span>  
-          <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://goodhealthhospital.org/nutrition-orders&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;123&quot;</span>
-        <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="nt">&quot;dateTime&quot;</span><span class="p">:</span><span class="s2">&quot;2014-09-17&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;proposed&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;oralDiet&quot;</span><span class="p">:{</span>  
-        <span class="nt">&quot;type&quot;</span><span class="p">:[</span>  
-          <span class="p">{</span>  
-            <span class="nt">&quot;coding&quot;</span><span class="p">:[</span>  
-              <span class="p">{</span>  
-                <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://snomed.info/sct&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;435801000124108&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Texture modified diet&quot;</span>
-              <span class="p">},</span>
-              <span class="p">{</span>  
-                <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://goodhealthhospital.org/diet-type-codes&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;1010&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Texture modified diet&quot;</span>
+135
+136
+137
+138
+139
+140
+141
+142</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="s2">&quot;context&quot;</span><span class="err">:</span><span class="p">{</span>
+  <span class="nt">&quot;patientId&quot;</span><span class="p">:</span><span class="s2">&quot;1288992&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;encounterId&quot;</span><span class="p">:</span><span class="s2">&quot;89284&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;orders&quot;</span><span class="p">:{</span>
+    <span class="nt">&quot;resourceType&quot;</span><span class="p">:</span><span class="s2">&quot;Bundle&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;entry&quot;</span><span class="p">:[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;resource&quot;</span><span class="p">:{</span>
+          <span class="nt">&quot;resourceType&quot;</span><span class="p">:</span><span class="s2">&quot;NutritionOrder&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;nest-patient-1-NUTR1&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;patient&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;reference&quot;</span><span class="p">:</span><span class="s2">&quot;Patient/1288992&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Tomy Francis&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;orderer&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Dr Adam Careful&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;identifier&quot;</span><span class="p">:[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://goodhealthhospital.org/nutrition-orders&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;123&quot;</span>
+            <span class="p">}</span>
+          <span class="p">],</span>
+          <span class="nt">&quot;dateTime&quot;</span><span class="p">:</span><span class="s2">&quot;2014-09-17&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;draft&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;oralDiet&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;coding&quot;</span><span class="p">:[</span>
+                  <span class="p">{</span>
+                    <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://snomed.info/sct&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;435801000124108&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Texture modified diet&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                    <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://goodhealthhospital.org/diet-type-codes&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;1010&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Texture modified diet&quot;</span>
+                  <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;Texture modified diet&quot;</span>
               <span class="p">}</span>
             <span class="p">],</span>
-            <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;Texture modified diet&quot;</span>
-          <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;schedule&quot;</span><span class="p">:[</span>  
-          <span class="p">{</span>  
-            <span class="nt">&quot;repeat&quot;</span><span class="p">:{</span>  
-              <span class="nt">&quot;boundsPeriod&quot;</span><span class="p">:{</span>  
-                <span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="s2">&quot;2015-02-10&quot;</span>
-              <span class="p">},</span>
-              <span class="nt">&quot;frequency&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-              <span class="nt">&quot;period&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-              <span class="nt">&quot;periodUnits&quot;</span><span class="p">:</span><span class="s2">&quot;d&quot;</span>
-            <span class="p">}</span>
-          <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;texture&quot;</span><span class="p">:[</span>  
-          <span class="p">{</span>  
-            <span class="nt">&quot;modifier&quot;</span><span class="p">:{</span>  
-              <span class="nt">&quot;coding&quot;</span><span class="p">:[</span>  
-                <span class="p">{</span>  
-                  <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://snomed.info/sct&quot;</span><span class="p">,</span>
-                  <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;228049004&quot;</span><span class="p">,</span>
-                  <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Chopped food&quot;</span>
+            <span class="nt">&quot;schedule&quot;</span><span class="p">:[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;repeat&quot;</span><span class="p">:{</span>
+                  <span class="nt">&quot;boundsPeriod&quot;</span><span class="p">:{</span>
+                    <span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="s2">&quot;2015-02-10&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;frequency&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+                  <span class="nt">&quot;period&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="nt">&quot;periodUnits&quot;</span><span class="p">:</span><span class="s2">&quot;d&quot;</span>
                 <span class="p">}</span>
-              <span class="p">],</span>
-              <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;Regular, Chopped Meat&quot;</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;foodType&quot;</span><span class="p">:{</span>  
-              <span class="nt">&quot;coding&quot;</span><span class="p">:[</span>  
-                <span class="p">{</span>  
-                  <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://snomed.info/sct&quot;</span><span class="p">,</span>
-                  <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;22836000&quot;</span><span class="p">,</span>
-                  <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Vegetable&quot;</span>
+              <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;texture&quot;</span><span class="p">:[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;modifier&quot;</span><span class="p">:{</span>
+                  <span class="nt">&quot;coding&quot;</span><span class="p">:[</span>
+                    <span class="p">{</span>
+                      <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://snomed.info/sct&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;228049004&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Chopped food&quot;</span>
+                    <span class="p">}</span>
+                  <span class="p">],</span>
+                  <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;Regular, Chopped Meat&quot;</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;foodType&quot;</span><span class="p">:{</span>
+                  <span class="nt">&quot;coding&quot;</span><span class="p">:[</span>
+                    <span class="p">{</span>
+                      <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://snomed.info/sct&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;22836000&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Vegetable&quot;</span>
+                    <span class="p">}</span>
+                  <span class="p">],</span>
+                  <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;Regular, Chopped Meat&quot;</span>
                 <span class="p">}</span>
-              <span class="p">],</span>
-              <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;Regular, Chopped Meat&quot;</span>
-            <span class="p">}</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
           <span class="p">}</span>
-        <span class="p">]</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="p">{</span>  
-      <span class="nt">&quot;resourceType&quot;</span><span class="p">:</span><span class="s2">&quot;MedicationOrder&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;smart-MedicationOrder-103&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;draft&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;patient&quot;</span><span class="p">:{</span>  
-        <span class="nt">&quot;reference&quot;</span><span class="p">:</span><span class="s2">&quot;Patient/nest-patient-1&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Tomy Francis&quot;</span>
+        <span class="p">}</span>
       <span class="p">},</span>
-      <span class="nt">&quot;medicationCodeableConcept&quot;</span><span class="p">:{</span>  
-        <span class="nt">&quot;coding&quot;</span><span class="p">:[</span>  
-          <span class="p">{</span>  
-            <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://www.nlm.nih.gov/research/umls/rxnorm&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;617993&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Amoxicillin 120 MG/ML / clavulanate potassium 8.58 MG/ML Oral Suspension&quot;</span>
-          <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;Amoxicillin 120 MG/ML / clavulanate potassium 8.58 MG/ML Oral Suspension&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;dosageInstruction&quot;</span><span class="p">:[</span>  
-        <span class="p">{</span>  
-          <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;5 mL bid x 10 days&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;timing&quot;</span><span class="p">:{</span>  
-            <span class="nt">&quot;repeat&quot;</span><span class="p">:{</span>  
-              <span class="nt">&quot;boundsPeriod&quot;</span><span class="p">:{</span>  
-                <span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="s2">&quot;2005-01-04&quot;</span>
-              <span class="p">},</span>
-              <span class="nt">&quot;frequency&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-              <span class="nt">&quot;period&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-              <span class="nt">&quot;periodUnits&quot;</span><span class="p">:</span><span class="s2">&quot;d&quot;</span>
-            <span class="p">}</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;resource&quot;</span><span class="p">:{</span>
+          <span class="nt">&quot;resourceType&quot;</span><span class="p">:</span><span class="s2">&quot;MedicationOrder&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;smart-MedicationOrder-103&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;draft&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;patient&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;reference&quot;</span><span class="p">:</span><span class="s2">&quot;Patient/1288992&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Tomy Francis&quot;</span>
           <span class="p">},</span>
-          <span class="nt">&quot;doseQuantity&quot;</span><span class="p">:{</span>  
-            <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-            <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span>
+          <span class="nt">&quot;medicationCodeableConcept&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;coding&quot;</span><span class="p">:[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://www.nlm.nih.gov/research/umls/rxnorm&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;617993&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Amoxicillin 120 MG/ML / clavulanate potassium 8.58 MG/ML Oral Suspension&quot;</span>
+              <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;Amoxicillin 120 MG/ML / clavulanate potassium 8.58 MG/ML Oral Suspension&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;dosageInstruction&quot;</span><span class="p">:[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;5 mL bid x 10 days&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;timing&quot;</span><span class="p">:{</span>
+                <span class="nt">&quot;repeat&quot;</span><span class="p">:{</span>
+                  <span class="nt">&quot;boundsPeriod&quot;</span><span class="p">:{</span>
+                    <span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="s2">&quot;2005-01-04&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;frequency&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+                  <span class="nt">&quot;period&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="nt">&quot;periodUnits&quot;</span><span class="p">:</span><span class="s2">&quot;d&quot;</span>
+                <span class="p">}</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;doseQuantity&quot;</span><span class="p">:{</span>
+                <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
+                <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">],</span>
+          <span class="nt">&quot;dispenseRequest&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;numberOfRepeatsAllowed&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;quantity&quot;</span><span class="p">:{</span>
+              <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+              <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;expectedSupplyDuration&quot;</span><span class="p">:{</span>
+              <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
+              <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;days&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;d&quot;</span>
+            <span class="p">}</span>
           <span class="p">}</span>
         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="nt">&quot;dispenseRequest&quot;</span><span class="p">:{</span>  
-        <span class="nt">&quot;numberOfRepeatsAllowed&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="nt">&quot;quantity&quot;</span><span class="p">:{</span>  
-          <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-          <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;expectedSupplyDuration&quot;</span><span class="p">:{</span>  
-          <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
-          <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;days&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;d&quot;</span>
-        <span class="p">}</span>
       <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table>
+
+<h2 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>Initial Release</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 

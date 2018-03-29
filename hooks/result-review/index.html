@@ -281,6 +281,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../template/" title="new-hook-template" class="md-nav__link">
+      new-hook-template
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../patient-view/" title="patient-view" class="md-nav__link">
       patient-view
     </a>
@@ -344,8 +356,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-description" title="Workflow description" class="md-nav__link">
-    Workflow description
+  <a href="#workflow" title="Workflow" class="md-nav__link">
+    Workflow
   </a>
   
 </li>
@@ -441,8 +453,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-description" title="Workflow description" class="md-nav__link">
-    Workflow description
+  <a href="#workflow" title="Workflow" class="md-nav__link">
+    Workflow
   </a>
   
 </li>
@@ -485,7 +497,25 @@
                 
                 
                 <h1 id="result-review"><code>result-review</code><a class="headerlink" href="#result-review" title="Permanent link">&para;</a></h1>
-<h2 id="workflow-description">Workflow description<a class="headerlink" href="#workflow-description" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metadata</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>specificationVersion</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>hookVersion</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
 <p>The user is in the process of reviewing a set of results.</p>
 <h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
 <p>The user reviewing the lab results. All FHIR resources in this context MUST be based on the same FHIR version.</p>
@@ -515,7 +545,7 @@
 <td><code>results</code></td>
 <td>REQUIRED</td>
 <td>No</td>
-<td><em>array</em> DSTU2 - Array of Observation<br> <em>array</em> STU3 - Array of Observation</td>
+<td><em>object</em> DSTU2 - Array of Observation<br> <em>array</em> STU3 - Array of Observation</td>
 </tr>
 </tbody>
 </table>
@@ -577,95 +607,63 @@
 55
 56
 57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="s2">&quot;context&quot;</span><span class="err">:</span><span class="p">{</span>
+58</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="s2">&quot;context&quot;</span><span class="err">:</span><span class="p">{</span>
   <span class="nt">&quot;patientId&quot;</span><span class="p">:</span> <span class="s2">&quot;1288992&quot;</span><span class="p">,</span>
   <span class="nt">&quot;encounterId&quot;</span><span class="p">:</span> <span class="s2">&quot;89284&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;resourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;Observation&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;observation-id-1&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;identifier&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;https://intranet.aumc.nl/labvalues&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;1304-03720-Creatinine&quot;</span>
+  <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;resourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;Bundle&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;entry&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;resourceType&quot;</span><span class="p">:</span> <span class="s2">&quot;Observation&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;171184&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;versionId&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-03-28T21:35:28.000+00:00&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;final&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;coding&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hl7.org/fhir/observation-category&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;laboratory&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;display&quot;</span><span class="p">:</span> <span class="s2">&quot;Laboratory&quot;</span>
+            <span class="p">}</span>
+          <span class="p">],</span>
+          <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Laboratory&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;coding&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;http://loinc.org&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;2951-2&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;display&quot;</span><span class="p">:</span> <span class="s2">&quot;Sodium [Moles/volume] in Serum or Plasma&quot;</span>
+            <span class="p">}</span>
+          <span class="p">],</span>
+          <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Sodium&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;subject&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;Patient/171092&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;effectiveDateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-03-28T04:00:00.000Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;valueQuantity&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span>
+          <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;mmol/L&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;mmol/L&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;interpretation&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;coding&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hl7.org/fhir/ValueSet/observation-interpretation&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;display&quot;</span><span class="p">:</span> <span class="s2">&quot;Low&quot;</span>
+            <span class="p">}</span>
+          <span class="p">],</span>
+          <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;L&quot;</span>
         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;final&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;coding&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-            <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;https://intranet.aumc.nl/labtestcodes&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;20005&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;display&quot;</span><span class="p">:</span> <span class="s2">&quot;Creatinine(Serum)&quot;</span>
-          <span class="p">}</span>
-        <span class="p">]</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;subject&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;Patient/1288992&quot;</span><span class="p">,</span>
-
-      <span class="p">},</span>
-      <span class="nt">&quot;issued&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-04-04T14:34:00+01:00&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;performer&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;Practitioner/example&quot;</span>
-        <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="nt">&quot;valueQuantity&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">122</span><span class="p">,</span>
-        <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;umol/L&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;http://snomed.info/sct&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;258814008&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;interpretation&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;coding&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-            <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;http://snomed.info/sct&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;166717003&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;display&quot;</span><span class="p">:</span> <span class="s2">&quot;Serum creatinine raised&quot;</span>
-          <span class="p">},</span>
-          <span class="p">{</span>
-            <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hl7.org/fhir/v2/0078&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;H&quot;</span>
-          <span class="p">}</span>
-        <span class="p">]</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;referenceRange&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="nt">&quot;low&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">64</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;high&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">104</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;coding&quot;</span><span class="p">:</span> <span class="p">[</span>
-              <span class="p">{</span>
-                <span class="nt">&quot;system&quot;</span><span class="p">:</span> <span class="s2">&quot;http://hl7.org/fhir/referencerange-meaning&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;display&quot;</span><span class="p">:</span> <span class="s2">&quot;Normal Range&quot;</span>
-              <span class="p">}</span>
-            <span class="p">]</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">]</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table>

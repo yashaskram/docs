@@ -391,8 +391,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-of-prefetch-in-request" title="Example of prefetch in request" class="md-nav__link">
-    Example of prefetch in request
+  <a href="#example-prefetch-templates" title="Example prefetch templates" class="md-nav__link">
+    Example prefetch templates
   </a>
   
 </li>
@@ -604,6 +604,18 @@
   <li class="md-nav__item">
     <a href="../../hooks/" title="Hooks" class="md-nav__link">
       Hooks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../hooks/template/" title="new-hook-template" class="md-nav__link">
+      new-hook-template
     </a>
   </li>
 
@@ -849,8 +861,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-of-prefetch-in-request" title="Example of prefetch in request" class="md-nav__link">
-    Example of prefetch in request
+  <a href="#example-prefetch-templates" title="Example prefetch templates" class="md-nav__link">
+    Example prefetch templates
   </a>
   
 </li>
@@ -1087,7 +1099,8 @@
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1095,27 +1108,32 @@
 <tr>
 <td><code>hook</code></td>
 <td>REQUIRED</td>
-<td><em>string</em> or <em>url</em>. The hook this service should be invoked on. See <a href="#hook-catalog">Hook Catalog</a></td>
+<td><em>string</em></td>
+<td>The hook this service should be invoked on. See <a href="#hook-catalog">Hook Catalog</a></td>
 </tr>
 <tr>
 <td><code>title</code></td>
 <td>RECOMMENDED</td>
-<td><em>string</em>.  The human-friendly name of this service</td>
+<td><em>string</em></td>
+<td>The human-friendly name of this service</td>
 </tr>
 <tr>
 <td><nobr><code>description</code></nobr></td>
 <td>REQUIRED</td>
-<td><em>string</em>. The description of this service</td>
+<td><em>string</em></td>
+<td>The description of this service</td>
 </tr>
 <tr>
 <td><code>id</code></td>
 <td>REQUIRED</td>
-<td><em>string</em>. The {id} portion of the URL to this service which is available at<br /><code>{baseUrl}/cds-services/{id}</code></td>
+<td><em>string</em></td>
+<td>The {id} portion of the URL to this service which is available at<br /><code>{baseUrl}/cds-services/{id}</code></td>
 </tr>
 <tr>
 <td><code>prefetch</code></td>
 <td>OPTIONAL</td>
-<td><em>object</em>. An object containing key/value pairs of FHIR queries that this service is requesting that the EHR prefetch and provide on each service call. The key is a <em>string</em> that describes the type of data being requested and the value is a <em>string</em> representing the FHIR query.<br />See <a href="#prefetch-template">Prefetch Template</a>.</td>
+<td><em>object</em></td>
+<td>An object containing key/value pairs of FHIR queries that this service is requesting that the EHR prefetch and provide on each service call. The key is a <em>string</em> that describes the type of data being requested and the value is a <em>string</em> representing the FHIR query.<br />See <a href="#prefetch-template">Prefetch Template</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -1172,7 +1190,7 @@
       <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;An example of a CDS Service that returns a static set of cards&quot;</span><span class="p">,</span>
       <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;static-patient-greeter&quot;</span><span class="p">,</span>
       <span class="nt">&quot;prefetch&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;patientToGreet&quot;</span><span class="p">:</span> <span class="s2">&quot;Patient/{{Patient.id}}&quot;</span>
+        <span class="nt">&quot;patientToGreet&quot;</span><span class="p">:</span> <span class="s2">&quot;Patient/{{context.patientId}}&quot;</span>
       <span class="p">}</span>
     <span class="p">},</span>
     <span class="p">{</span>
@@ -1181,8 +1199,8 @@
       <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;An example of a CDS Service that simply echos the medication being prescribed&quot;</span><span class="p">,</span>
       <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;medication-echo&quot;</span><span class="p">,</span>
       <span class="nt">&quot;prefetch&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;patient&quot;</span><span class="p">:</span> <span class="s2">&quot;Patient/{{Patient.id}}&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;medications&quot;</span><span class="p">:</span> <span class="s2">&quot;MedicationOrder?patient={{Patient.id}}&quot;</span>
+        <span class="nt">&quot;patient&quot;</span><span class="p">:</span> <span class="s2">&quot;Patient/{{context.patientId}}&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;medications&quot;</span><span class="p">:</span> <span class="s2">&quot;MedicationOrder?patient={{context.patientId}}&quot;</span>
       <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">]</span>
@@ -1200,7 +1218,8 @@ call includes a JSON POST body with the following input fields:</p>
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1208,37 +1227,44 @@ call includes a JSON POST body with the following input fields:</p>
 <tr>
 <td><code>hook</code></td>
 <td>REQUIRED</td>
-<td><em>string</em> or <em>URL</em>. The hook that triggered this CDS Service call<br />(todo: link to hook documentation)</td>
+<td><em>string</em></td>
+<td>The hook that triggered this CDS Service call<br />(todo: link to hook documentation)</td>
 </tr>
 <tr>
 <td><nobr><code>hookInstance</code></nobr></td>
 <td>REQUIRED</td>
-<td><em>string</em>.  A UUID for this particular hook call (see more information below)</td>
+<td><em>string</em></td>
+<td>A UUID for this particular hook call (see more information below)</td>
 </tr>
 <tr>
 <td><code>fhirServer</code></td>
 <td>OPTIONAL</td>
-<td><em>URL</em>.  The base URL EHR's <a href="https://www.hl7.org/fhir/">FHIR</a> server. If fhirAuthorization is provided, this field is REQUIRED.  The scheme should be <code>https</code></td>
+<td><em>URL</em></td>
+<td>The base URL EHR's <a href="https://www.hl7.org/fhir/">FHIR</a> server. If fhirAuthorization is provided, this field is REQUIRED.  The scheme should be <code>https</code></td>
 </tr>
 <tr>
 <td><code>fhirAuthorization</code></td>
 <td>OPTIONAL</td>
-<td><em>object</em>. A structure holding an OAuth 2.0 bearer access token granting the CDS Service access to FHIR resources, along with supplemental information relating to the token. See the <a href="#fhir-resource-access">FHIR Resource Access</a> section for more information.</td>
+<td><em>object</em></td>
+<td>A structure holding an OAuth 2.0 bearer access token granting the CDS Service access to FHIR resources, along with supplemental information relating to the token. See the <a href="#fhir-resource-access">FHIR Resource Access</a> section for more information.</td>
 </tr>
 <tr>
 <td><code>user</code></td>
 <td>REQUIRED</td>
-<td><em>string</em>.  The FHIR resource type + id representing the current user.<br />The type is one of: <a href="https://www.hl7.org/fhir/practitioner.html">Practitioner</a>, <a href="https://www.hl7.org/fhir/patient.html">Patient</a>, or <a href="https://www.hl7.org/fhir/relatedperson.html">RelatedPerson</a>.<br />For example, <code>Practitioner/123</code></td>
+<td><em>string</em></td>
+<td>The FHIR resource type + id representing the current user.<br />The type is one of: <a href="https://www.hl7.org/fhir/practitioner.html">Practitioner</a>, <a href="https://www.hl7.org/fhir/patient.html">Patient</a>, or <a href="https://www.hl7.org/fhir/relatedperson.html">RelatedPerson</a>.<br />For example, <code>Practitioner/123</code></td>
 </tr>
 <tr>
 <td><code>context</code></td>
 <td>REQUIRED</td>
-<td><em>object</em>.  Hook-specific contextual data that the CDS service will need.<br />For example, with the <code>medication-prescribe</code> hook this will include <a href="https://www.hl7.org/fhir/medicationorder.html">MedicationOrder</a> being prescribed.  For details, see the <a href="http://cds-hooks.org/hooks/">Hooks specification</a>.</td>
+<td><em>object</em></td>
+<td>Hook-specific contextual data that the CDS service will need.<br />For example, with the <code>medication-prescribe</code> hook this will include <a href="https://www.hl7.org/fhir/medicationorder.html">MedicationOrder</a> being prescribed.  For details, see the <a href="http://cds-hooks.org/hooks/">Hooks specification</a>.</td>
 </tr>
 <tr>
 <td><code>prefetch</code></td>
 <td>OPTIONAL</td>
-<td><em>object</em>.  The FHIR data that was prefetched by the EHR (see more information below)</td>
+<td><em>object</em></td>
+<td>The FHIR data that was prefetched by the EHR (see more information below)</td>
 </tr>
 </tbody>
 </table>
@@ -1319,25 +1345,48 @@ call includes a JSON POST body with the following input fields:</p>
 <p>Similarly, each EHR will decide what FHIR resources to authorize and to prefetch, based on the CDS Service description's "prefetch" request and on the provider's assessment of the "minimum necessary."  The EHR provider and the CDS Service provider will negotiate the set of FHIR resources to be provided, and how these data will be provided, as part of their service agreement. </p>
 <h3 id="prefetch-template">Prefetch Template<a class="headerlink" href="#prefetch-template" title="Permanent link">&para;</a></h3>
 <p>The prefetch template is a dictionary of <code>read</code> and <code>search</code> requests to supply
-relevant data, where the following variables are defined:</p>
+relevant data. In order to allow for prefetch templates that are dependent upon the particular CDS Service request, prefetch tokens or variables may be defined.</p>
+<p>Prefetch tokens MUST be delimited by <code>{{</code> and <code>}}</code>, MUST be named based upon the field they correspond to, and MUST have a primitive value.</p>
+<p>The CDS Hooks specification defines just one prefetch token:</p>
 <table>
 <thead>
 <tr>
-<th>variable</th>
-<th>meaning</th>
+<th>Variable</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>{{Patient.id}}</code></td>
-<td>The id of the patient in context for this activity (e.g. <code>123</code>)</td>
-</tr>
-<tr>
-<td><code>{{User.id}}</code></td>
-<td>The type and id of the user for this session (e.g. <code>Practitioner/123</code>)</td>
+<td><code>{{user}}</code></td>
+<td>The value of the <code>user</code> field from this CDS Service request (e.g. <code>Practitioner/123</code>)</td>
 </tr>
 </tbody>
 </table>
+<p>Individual hooks specify which of their <code>context</code> fields can be used as prefetch tokens. Only root-level fields with a primitive value within the <code>context</code> object are eligible to be used as prefetch tokens.</p>
+<p>For instance, given a hook of <code>example-hook</code> with the following context in which the <code>patientId</code> and <code>medicationId</code> fields are both denoted as prefix tokens:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="s2">&quot;context&quot;</span><span class="err">:</span> <span class="p">{</span>
+  <span class="nt">&quot;patientId&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;medicationId&quot;</span><span class="p">:</span> <span class="s2">&quot;456&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;medication&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;456&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="err">...</span> <span class="err">//</span> <span class="err">FHIR</span> <span class="err">CodeableConcept</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>The prefetch tokens defined by this <code>example-hook</code> would be <code>{{context.patientId}}</code> and <code>{{context.medicationId}}</code>. Note that the <code>context.medication.id</code> field is not eligible to be a prefetch token as it is not a root-level field of the <code>context</code> object.</p>
 <p>An EHR MAY choose to honor some or all of the desired prefetch templates, and is free to choose the most appropriate source for these data. For example:</p>
 <ul>
 <li>The EHR may have some of the desired prefetched data already in memory, thereby removing the need for any network call</li>
@@ -1348,7 +1397,7 @@ relevant data, where the following variables are defined:</p>
 <p>Regardless of how the EHR satisfies the prefetch templates (if at all), the prefetched data given to the CDS Service MUST BE equivalent to the data the CDS Service would receive if it were making its own call to the EHR FHIR server using the parameterized prefetch template.</p>
 <p>The resulting response, which MUST BE rendered in a single page — no "next page" links allowed — is passed along to the CDS Service using the <code>prefetch</code> parameter (see below for a complete example). </p>
 <p>The CDS Service MUST NOT receive any prefetch template key that the EHR chooses not to satisfy; in which case the prefetch template key SHOULD NOT be sent. Similarly, if the EHR encounters an error while prefetching any data, the prefetch template key SHOULD NOT be sent to the CDS Service. If the EHR has no data to populate a template prefetch key, the prefetch template key MUST have a value of <strong>null</strong>. It is the CDS Service's responsibility to check prefetched data against its template to determine what requests were satisfied (if any) and to manually retrieve any additional necessary data. If the CDS Service is unable to obtain required data because it cannot access the FHIR server and the request did not contain the necessary prefetch keys, the service SHALL respond with an HTTP 412 Precondition Failed status code.</p>
-<h4 id="example-of-prefetch-in-request">Example of prefetch in request<a class="headerlink" href="#example-of-prefetch-in-request" title="Permanent link">&para;</a></h4>
+<h4 id="example-prefetch-templates">Example prefetch templates<a class="headerlink" href="#example-prefetch-templates" title="Permanent link">&para;</a></h4>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1357,15 +1406,15 @@ relevant data, where the following variables are defined:</p>
 6
 7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;prefetch&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;Patient/{{Patient.id}}&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;a1c&quot;</span><span class="p">:</span> <span class="s2">&quot;Observation?patient={{Patient.id}}&amp;code=4548-4&amp;_count=1&amp;sort:desc=date&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;u&quot;</span><span class="p">:</span> <span class="s2">&quot;Practitioner/{{User.id}}&quot;</span>
+    <span class="nt">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;Patient/{{context.patientId}}&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;a1c&quot;</span><span class="p">:</span> <span class="s2">&quot;Observation?patient={{context.patientId}}&amp;code=4548-4&amp;_count=1&amp;sort:desc=date&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;u&quot;</span><span class="p">:</span> <span class="s2">&quot;Practitioner/{{user}}&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
-<p>Here is an example prefetch property from a CDS Service discovery endpoint. The
+<p>Here is an example prefetch field from a CDS Service discovery endpoint. The
 goal is to know, at call time:</p>
 <table>
 <thead>
@@ -1454,7 +1503,7 @@ keys match the request keys (<code>p</code> and <code>a1c</code> in this case).<
 <ul>
 <li><em>instance</em> level <a href="https://www.hl7.org/fhir/http.html#read">read</a> interactions (for resources with known ids such as <code>Patient</code> and <code>Practitioner</code>)</li>
 <li><em>type</em> level <a href="https://www.hl7.org/fhir/http.html#search">search</a> interactions</li>
-<li>Patient references (e.g. <code>patient={{Patient}}</code>)</li>
+<li>Patient references (e.g. <code>patient={{context.patientId}}</code>)</li>
 <li><em>token</em> search parameters using equality (e.g. <code>code=4548-4</code>) and optionally the <code>:in</code> modifier (no other modifiers for token parameters)</li>
 <li><em>date</em> search parameters on <code>date</code>, <code>dateTime</code>, <code>instant</code>, or <code>Period</code> types only, and using only the prefixes <code>eq</code>, <code>lt</code>, <code>gt</code>, <code>ge</code>, <code>le</code></li>
 <li>the <code>_count</code> parameter to limit the number of results returned</li>
@@ -1474,7 +1523,8 @@ keys match the request keys (<code>p</code> and <code>a1c</code> in this case).<
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1482,30 +1532,36 @@ keys match the request keys (<code>p</code> and <code>a1c</code> in this case).<
 <tr>
 <td><code>access_token</code></td>
 <td>REQUIRED</td>
-<td><em>string</em>. This is the OAuth 2 access token that provides access to the FHIR server.</td>
+<td><em>string</em></td>
+<td>This is the OAuth 2 access token that provides access to the FHIR server.</td>
 </tr>
 <tr>
 <td><code>token_type</code></td>
 <td>REQUIRED</td>
-<td><em>string</em>. Fixed value: <code>Bearer</code>.</td>
+<td><em>string</em></td>
+<td>Fixed value: <code>Bearer</code>.</td>
 </tr>
 <tr>
 <td><code>expires_in</code></td>
 <td>REQUIRED</td>
-<td><em>integer</em>. The lifetime in seconds of the access token.</td>
+<td><em>integer</em></td>
+<td>The lifetime in seconds of the access token.</td>
 </tr>
 <tr>
 <td><code>scope</code></td>
 <td>REQUIRED</td>
-<td><em>string</em>. The scopes the access token grants the CDS Service.</td>
+<td><em>string</em></td>
+<td>The scopes the access token grants the CDS Service.</td>
 </tr>
 <tr>
 <td><code>subject</code></td>
 <td>REQUIRED</td>
-<td><em>string</em>.  The OAuth 2.0 client identifier of the CDS Service, as registered with the EHR's authorization server.</td>
+<td><em>string</em></td>
+<td>The OAuth 2.0 client identifier of the CDS Service, as registered with the EHR's authorization server.</td>
 </tr>
 </tbody>
 </table>
+<p>The scopes granted to the CDS Service via the <code>scope</code> field are defined by the <a href="http://www.hl7.org/fhir/smart-app-launch/scopes-and-launch-context/">SMART on FHIR specification</a>.</p>
 <p>The <code>expires_in</code> value is established by the authorization server and SHOULD BE very short lived, as the access token must be treated as a transient value by the CDS Service.</p>
 <p>Below is an example <code>fhirAuthorization</code> parameter:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -1534,7 +1590,8 @@ keys match the request keys (<code>p</code> and <code>a1c</code> in this case).<
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1542,7 +1599,8 @@ keys match the request keys (<code>p</code> and <code>a1c</code> in this case).<
 <tr>
 <td><code>cards</code></td>
 <td>REQUIRED</td>
-<td><em>array</em>. An array of <strong>Cards</strong>. Cards can provide a combination of information (for reading), suggested actions (to be applied if a user selects them), and links (to launch an app if the user selects them). The EHR decides how to display cards, but we recommend displaying suggestions using buttons, and links using underlined text.</td>
+<td><em>array</em></td>
+<td>An array of <strong>Cards</strong>. Cards can provide a combination of information (for reading), suggested actions (to be applied if a user selects them), and links (to launch an app if the user selects them). The EHR decides how to display cards, but we recommend displaying suggestions using buttons, and links using underlined text.</td>
 </tr>
 </tbody>
 </table>
@@ -1564,7 +1622,8 @@ keys match the request keys (<code>p</code> and <code>a1c</code> in this case).<
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1572,32 +1631,38 @@ keys match the request keys (<code>p</code> and <code>a1c</code> in this case).<
 <tr>
 <td><code>summary</code></td>
 <td>REQUIRED</td>
-<td><em>string</em>. one-sentence, &lt;140-character summary message for display to the user inside of this card.</td>
+<td><em>string</em></td>
+<td>One-sentence, &lt;140-character summary message for display to the user inside of this card.</td>
 </tr>
 <tr>
 <td><code>detail</code></td>
 <td>OPTIONAL</td>
-<td><em>string</em>.  optional detailed information to display; if provided MUST BE represented in <a href="https://github.github.com/gfm/">(GitHub Flavored) Markdown</a> without HTML. (For non-urgent cards, the EHR MAY hide these details until the user clicks a link like "view more details...".)</td>
+<td><em>string</em></td>
+<td>Optional detailed information to display; if provided MUST BE represented in <a href="https://github.github.com/gfm/">(GitHub Flavored) Markdown</a> without HTML. (For non-urgent cards, the EHR MAY hide these details until the user clicks a link like "view more details...".)</td>
 </tr>
 <tr>
 <td><code>indicator</code></td>
 <td>REQUIRED</td>
-<td><em>string</em>.  urgency/importance of what this card conveys. Allowed values, in order of increasing urgency, are: <code>info</code>, <code>warning</code>, <code>hard-stop</code>. The EHR MAY use this field to help make UI display decisions such as sort order or coloring. The value <code>hard-stop</code> indicates that the workflow should not be allowed to proceed.</td>
+<td><em>string</em></td>
+<td>Urgency/importance of what this card conveys. Allowed values, in order of increasing urgency, are: <code>info</code>, <code>warning</code>, <code>hard-stop</code>. The EHR MAY use this field to help make UI display decisions such as sort order or coloring. The value <code>hard-stop</code> indicates that the workflow should not be allowed to proceed.</td>
 </tr>
 <tr>
 <td><code>source</code></td>
 <td>REQUIRED</td>
-<td><em>object</em>. grouping structure for the <strong>Source</strong> of the information displayed on this card. The source should be the primary source of guidance for the decision support the card represents.</td>
+<td><em>object</em></td>
+<td>Grouping structure for the <strong>Source</strong> of the information displayed on this card. The source should be the primary source of guidance for the decision support the card represents.</td>
 </tr>
 <tr>
 <td><nobr><code>suggestions</code></nobr></td>
 <td>OPTIONAL</td>
-<td><em>array</em> of <strong>Suggestions</strong>, which allow a service to suggest a set of changes in the context of the current activity (e.g.  changing the dose of the medication currently being prescribed, for the <code>medication-prescribe</code> activity). If used, the user MUST BE allowed to choose no more than one suggestion.</td>
+<td><em>array</em> of <strong>Suggestions</strong></td>
+<td>Allows a service to suggest a set of changes in the context of the current activity (e.g.  changing the dose of the medication currently being prescribed, for the <code>medication-prescribe</code> activity). If used, the user MUST BE allowed to choose no more than one suggestion.</td>
 </tr>
 <tr>
 <td><code>links</code></td>
 <td>OPTIONAL</td>
-<td><em>array</em> of <strong>Links</strong>, which allow a service to suggest a link to an app that the user might want to run for additional information or to help guide a decision.</td>
+<td><em>array</em> of <strong>Links</strong></td>
+<td>Allows a service to suggest a link to an app that the user might want to run for additional information or to help guide a decision.</td>
 </tr>
 </tbody>
 </table>
@@ -1607,7 +1672,8 @@ keys match the request keys (<code>p</code> and <code>a1c</code> in this case).<
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1615,17 +1681,20 @@ keys match the request keys (<code>p</code> and <code>a1c</code> in this case).<
 <tr>
 <td><nobr><code>label</code></nobr></td>
 <td>REQUIRED</td>
-<td><em>string</em>. A short, human-readable label to display for the source of the information displayed on this card. If a <code>url</code> is also specified, this may be the text for the hyperlink.</td>
+<td><em>string</em></td>
+<td>A short, human-readable label to display for the source of the information displayed on this card. If a <code>url</code> is also specified, this may be the text for the hyperlink.</td>
 </tr>
 <tr>
 <td><code>url</code></td>
 <td>OPTIONAL</td>
-<td><em>URL</em>. An optional absolute URL to load (via <code>GET</code>, in a browser context) when a user clicks on this link to learn more about the organization or data set that provided the information on this card. Note that this URL should not be used to supply a context-specific "drill-down" view of the information on this card. For that, use <code>link.url</code> instead.</td>
+<td><em>URL</em></td>
+<td>An optional absolute URL to load (via <code>GET</code>, in a browser context) when a user clicks on this link to learn more about the organization or data set that provided the information on this card. Note that this URL should not be used to supply a context-specific "drill-down" view of the information on this card. For that, use <code>link.url</code> instead.</td>
 </tr>
 <tr>
 <td><code>icon</code></td>
 <td>OPTIONAL</td>
-<td><em>URL</em>. An optional absolute URL to an icon for the source of this card. The icon returned by this URL should be in PNG format, an image size of 100x100 pixels, and must not include any transparent regions.</td>
+<td><em>URL</em></td>
+<td>An optional absolute URL to an icon for the source of this card. The icon returned by this URL should be in PNG format, an image size of 100x100 pixels, and must not include any transparent regions.</td>
 </tr>
 </tbody>
 </table>
@@ -1635,7 +1704,8 @@ keys match the request keys (<code>p</code> and <code>a1c</code> in this case).<
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1643,17 +1713,20 @@ keys match the request keys (<code>p</code> and <code>a1c</code> in this case).<
 <tr>
 <td><code>label</code></td>
 <td>REQUIRED</td>
-<td><em>string</em>. human-readable label to display for this suggestion (e.g. the EHR might render this as the text on a button tied to this suggestion).</td>
+<td><em>string</em></td>
+<td>Human-readable label to display for this suggestion (e.g. the EHR might render this as the text on a button tied to this suggestion).</td>
 </tr>
 <tr>
 <td><code>uuid</code></td>
 <td>OPTIONAL</td>
-<td><em>string</em>. unique identifier for this suggestion. For details see <a href="#suggestion-tracking-analytics">Suggestion Tracking Analytics</a></td>
+<td><em>string</em></td>
+<td>Unique identifier for this suggestion. For details see <a href="#suggestion-tracking-analytics">Suggestion Tracking Analytics</a></td>
 </tr>
 <tr>
 <td><code>actions</code></td>
 <td>OPTIONAL</td>
-<td><em>array</em>. array of objects, each defining a suggested action. Within a suggestion, all actions are logically AND'd together, such that a user selecting a suggestion selects all of the actions within it.</td>
+<td><em>array</em></td>
+<td>Array of objects, each defining a suggested action. Within a suggestion, all actions are logically AND'd together, such that a user selecting a suggestion selects all of the actions within it.</td>
 </tr>
 </tbody>
 </table>
@@ -1672,7 +1745,8 @@ with an empty body:</p>
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1680,17 +1754,20 @@ with an empty body:</p>
 <tr>
 <td><code>type</code></td>
 <td>REQUIRED</td>
-<td><em>string</em>. The type of action being performed. Allowed values are: <code>create</code>, <code>update</code>, <code>delete</code>.</td>
+<td><em>string</em></td>
+<td>The type of action being performed. Allowed values are: <code>create</code>, <code>update</code>, <code>delete</code>.</td>
 </tr>
 <tr>
 <td><code>description</code></td>
 <td>REQUIRED</td>
-<td><em>string</em>. human-readable description of the suggested action. May be presented to the end-user.</td>
+<td><em>string</em></td>
+<td>Human-readable description of the suggested action. May be presented to the end-user.</td>
 </tr>
 <tr>
 <td><code>resource</code></td>
 <td>OPTIONAL</td>
-<td><em>object</em>. depending upon the <code>type</code> attribute, a new resource or the id of a resource. For a type of <code>create</code>, the <code>resource</code> attribute contains a new FHIR resource to apply within the current activity (e.g. for <code>medication-prescribe</code>, this holds the updated prescription as proposed by the suggestion).  For <code>delete</code>, this is the id of any resource to remove from the current activity (e.g. for the <code>order-review</code> activity, this would provide a way to remove an order from the pending list). In activities like <code>medication-prescribe</code> where only one "content" resource is ever relevant, this field may be omitted. For <code>update</code>, this holds the updated resource to modify from the current activity (e.g. for the <code>order-review</code> activity, this would provide a way to annotate an order from the pending list with an assessment).</td>
+<td><em>object</em></td>
+<td>Depending upon the <code>type</code> attribute, a new resource or the id of a resource. For a type of <code>create</code>, the <code>resource</code> attribute contains a new FHIR resource to apply within the current activity (e.g. for <code>medication-prescribe</code>, this holds the updated prescription as proposed by the suggestion).  For <code>delete</code>, this is the id of any resource to remove from the current activity (e.g. for the <code>order-review</code> activity, this would provide a way to remove an order from the pending list). In activities like <code>medication-prescribe</code> where only one "content" resource is ever relevant, this field may be omitted. For <code>update</code>, this holds the updated resource to modify from the current activity (e.g. for the <code>order-review</code> activity, this would provide a way to annotate an order from the pending list with an assessment).</td>
 </tr>
 </tbody>
 </table>
@@ -1700,7 +1777,8 @@ with an empty body:</p>
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1708,22 +1786,26 @@ with an empty body:</p>
 <tr>
 <td><nobr><code>label</code></nobr></td>
 <td>REQUIRED</td>
-<td><em>string</em>. human-readable label to display for this link (e.g. the EHR might render this as the underlined text of a clickable link).</td>
+<td><em>string</em></td>
+<td>Human-readable label to display for this link (e.g. the EHR might render this as the underlined text of a clickable link).</td>
 </tr>
 <tr>
 <td><code>url</code></td>
 <td>REQUIRED</td>
-<td><em>URL</em>. URL to load (via <code>GET</code>, in a browser context) when a user clicks on this link. Note that this may be a "deep link" with context embedded in path segments, query parameters, or a hash.</td>
+<td><em>URL</em></td>
+<td>URL to load (via <code>GET</code>, in a browser context) when a user clicks on this link. Note that this may be a "deep link" with context embedded in path segments, query parameters, or a hash.</td>
 </tr>
 <tr>
 <td><code>type</code></td>
 <td>REQUIRED</td>
-<td><em>string</em>. The type of the given URL. There are two possible values for this field. A type of <code>absolute</code> indicates that the URL is absolute and should be treated as-is. A type of <code>smart</code> indicates that the URL is a SMART app launch URL and the EHR should ensure the SMART app launch URL is populated with the appropriate SMART launch parameters.</td>
+<td><em>string</em></td>
+<td>The type of the given URL. There are two possible values for this field. A type of <code>absolute</code> indicates that the URL is absolute and should be treated as-is. A type of <code>smart</code> indicates that the URL is a SMART app launch URL and the EHR should ensure the SMART app launch URL is populated with the appropriate SMART launch parameters.</td>
 </tr>
 <tr>
 <td><code>appContext</code></td>
 <td>OPTIONAL</td>
-<td><em>string</em>.  An optional field that allows the CDS Service to pass context regarding the launch of this SMART app from the CDS card to the SMART app. The <code>appContext</code> field should only be valued if the link type is <code>smart</code> and is not valid for <code>absolute</code> links. The <code>appContext</code> field and value will be sent to the SMART app as part of the OAuth 2 access token response, alongside the other launch context when the SMART app is launched.</td>
+<td><em>string</em></td>
+<td>An optional field that allows the CDS Service to pass context regarding the launch of this SMART app from the CDS card to the SMART app. The <code>appContext</code> field should only be valued if the link type is <code>smart</code> and is not valid for <code>absolute</code> links. The <code>appContext</code> field and value will be sent to the SMART app as part of the OAuth 2 access token response, alongside the other launch context when the SMART app is launched.</td>
 </tr>
 </tbody>
 </table>
@@ -1842,7 +1924,8 @@ with an empty body:</p>
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
+<th>Type</th>
 <th>Value</th>
 </tr>
 </thead>
@@ -1850,17 +1933,26 @@ with an empty body:</p>
 <tr>
 <td>alg</td>
 <td>REQUIRED</td>
-<td><em>string</em> The cryptographic algorithm used to sign this JWT.</td>
+<td><em>string</em></td>
+<td>The cryptographic algorithm used to sign this JWT.</td>
 </tr>
 <tr>
 <td>kid</td>
 <td>REQUIRED</td>
-<td><em>string</em> The identifier of the key-pair used to sign this JWT.</td>
+<td><em>string</em></td>
+<td>The identifier of the key-pair used to sign this JWT. This identifier MUST be unique within the EHR's JWK Set.</td>
 </tr>
 <tr>
 <td>typ</td>
 <td>REQUIRED</td>
-<td><em>string</em> Fixed value: <code>JWT</code>.</td>
+<td><em>string</em></td>
+<td>Fixed value: <code>JWT</code>.</td>
+</tr>
+<tr>
+<td>jku</td>
+<td>OPTIONAL</td>
+<td><em>url</em></td>
+<td>The URL to the JWK Set containing the public key(s).</td>
 </tr>
 </tbody>
 </table>
@@ -1869,7 +1961,8 @@ with an empty body:</p>
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
+<th>Type</th>
 <th>Value</th>
 </tr>
 </thead>
@@ -1877,37 +1970,45 @@ with an empty body:</p>
 <tr>
 <td>iss</td>
 <td>REQUIRED</td>
-<td><em>string</em> The URL of the issuer of this JWT.  Note that the JWT may be self-issued by the EHR, or may be issued by a third-party identity provider.</td>
+<td><em>string</em></td>
+<td>The URI of the issuer of this JWT.  Note that the JWT may be self-issued by the EHR, or may be issued by a third-party identity provider.</td>
 </tr>
 <tr>
 <td>sub</td>
 <td>REQUIRED</td>
-<td><em>string</em> Client_id of the EHR.</td>
+<td><em>string</em></td>
+<td>Client_id of the EHR.</td>
 </tr>
 <tr>
 <td>aud</td>
 <td>REQUIRED</td>
-<td><em>string or array of strings</em> The CDS Service endpoint that is being called by the EHR. (See more details below).</td>
+<td><em>string</em> or <em>array of string</em></td>
+<td>The CDS Service endpoint that is being called by the EHR. (See more details below).</td>
 </tr>
 <tr>
 <td>exp</td>
 <td>REQUIRED</td>
-<td><em>number</em> Expiration time integer for this authentication JWT, expressed in seconds since the "Epoch" (1970-01-01T00:00:00Z UTC).</td>
+<td><em>number</em></td>
+<td>Expiration time integer for this authentication JWT, expressed in seconds since the "Epoch" (1970-01-01T00:00:00Z UTC).</td>
 </tr>
 <tr>
 <td>iat</td>
 <td>REQUIRED</td>
-<td><em>number</em> The time at which this JWT was issued, expressed in seconds since the "Epoch" (1970-01-01T00:00:00Z UTC).</td>
+<td><em>number</em></td>
+<td>The time at which this JWT was issued, expressed in seconds since the "Epoch" (1970-01-01T00:00:00Z UTC).</td>
 </tr>
 <tr>
 <td>jti</td>
 <td>REQUIRED</td>
-<td><em>string</em> A nonce string value that uniquely identifies this authentication JWT (used to protect against replay attacks)</td>
+<td><em>string</em></td>
+<td>A nonce string value that uniquely identifies this authentication JWT (used to protect against replay attacks)</td>
 </tr>
 </tbody>
 </table>
+<p>CDS Services SHOULD whitelist the <code>iss</code>, <code>jku</code> and <code>sub</code> fields to only the EHRs they trust.</p>
 <p>Per <a href="https://tools.ietf.org/html/rfc7519#section-4.1.3">rfc7519</a>, the <code>aud</code> value is either a string or an array of strings. For CDS Hooks, this value MUST BE the URL of the CDS Service endpoint being invoked. For example, consider a CDS Service available at a base URL of <code>https://cds.example.org</code>. When the EHR invokes the CDS Service discovery endpoint, the aud value is either <code>"https://cds.example.org/cds-services"</code> or <code>["https://cds.example.org/cds-services"]</code>. Similarly, when the EHR invokes a particular CDS Service (say, <code>some-service</code>), the aud value is either <code>"https://cds.example.org/cds-services/some-service"</code> or <code>["https://cds.example.org/cds-services/some-service"]</code>.</p>
 <p>The EHR MUST make its public key, expressed as a JSON Web Key (JWK) in a JWK Set, as defined by <a href="https://tools.ietf.org/html/rfc7517">rfc7517</a>. The <code>kid</code> value from the JWT header allows a CDS Service to identify the correct JWK in the JWK Set that can be used to verify the signature.</p>
+<p>The EHR MAY make its JWK Set available via a URL identified by the <code>jku</code> header field, as defined by <a href="https://tools.ietf.org/html/rfc7515#section-4.1.2">rfc7517 4.1.2</a>. If the <code>jku</code> header field is ommitted, the EHR and CDS Service SHALL communicate the JWK Set out-of-band.</p>
 <p>An example JSON web token header and payload:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -1922,10 +2023,12 @@ with an empty body:</p>
 11
 12
 13
-14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;HS256&quot;</span><span class="p">,</span>
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;ES384&quot;</span><span class="p">,</span>
   <span class="nt">&quot;typ&quot;</span><span class="p">:</span> <span class="s2">&quot;JWT&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;kid&quot;</span><span class="p">:</span> <span class="s2">&quot;example-kid&quot;</span>
+  <span class="nt">&quot;kid&quot;</span><span class="p">:</span> <span class="s2">&quot;example-kid&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;jku&quot;</span><span class="p">:</span> <span class="s2">&quot;https://fhir-ehr.example.com/jwk_uri&quot;</span>
 <span class="p">}</span>
 
 <span class="p">{</span>
@@ -1940,7 +2043,7 @@ with an empty body:</p>
 </td></tr></table>
 
 <p>Using the above JWT payload, the complete JWT as passed in the Authorization HTTP header would be:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImV4YW1wbGUta2lkIn0.eyJpc3MiOiJodHRwczovL2ZoaXItZWhyLmV4YW1wbGUuY29tLyIsImF1ZCI6Imh0dHBzOi8vY2RzLmV4YW1wbGUub3JnL2Nkcy1zZXJ2aWNlcy9zb21lLXNlcnZpY2UiLCJleHAiOjE0MjI1Njg4NjAsImlhdCI6MTMxMTI4MDk3MCwianRpIjoiZWUyMmIwMjEtZTFiNy00NjExLWJhNWItOGVlYzZhMzNhYzFlIn0.ATQ_bdiMFrKQMz2U-rALxzakOrBSEMtzTtMcDeXiF74
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Authorization: Bearer eyJhbGciOiJFUzM4NCIsInR5cCI6IkpXVCIsImtpZCI6ImV4YW1wbGUta2lkIiwiamt1IjoiaHR0cHM6Ly9maGlyLWVoci5leGFtcGxlLmNvbS9qd2tfdXJpIn0.eyJpc3MiOiJodHRwczovL2ZoaXItZWhyLmV4YW1wbGUuY29tLyIsInN1YiI6ImNsaWVudF9pZCIsImF1ZCI6Imh0dHBzOi8vY2RzLmV4YW1wbGUub3JnL2Nkcy1zZXJ2aWNlcy9zb21lLXNlcnZpY2UiLCJleHAiOjE0MjI1Njg4NjAsImlhdCI6MTMxMTI4MDk3MCwianRpIjoiZWUyMmIwMjEtZTFiNy00NjExLWJhNWItOGVlYzZhMzNhYzFlIn0.230VxOubItskK-HCzdfjR5Y76nEydquQoqK-JDHbl8y8wzo-7HJetYpY1R4rytp_yJJCc8DULX9G5llPKx6opQ
 </pre></div>
 </td></tr></table>
 
@@ -1995,7 +2098,7 @@ with an empty body:</p>
       <span class="nt">&quot;hook&quot;</span><span class="p">:</span> <span class="s2">&quot;patient-view&quot;</span><span class="p">,</span>
       <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;patientview&quot;</span><span class="p">,</span>
       <span class="nt">&quot;prefetch&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;patient&quot;</span><span class="p">:</span> <span class="s2">&quot;Patient/{{Patient.id}}&quot;</span>
+        <span class="nt">&quot;patient&quot;</span><span class="p">:</span> <span class="s2">&quot;Patient/{{context.patientId}}&quot;</span>
       <span class="p">},</span>
       <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;clinical decision support for patient view&quot;</span><span class="p">,</span>
       <span class="nt">&quot;extension&quot;</span><span class="p">:</span> <span class="p">{</span>

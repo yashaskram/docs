@@ -281,6 +281,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../template/" title="new-hook-template" class="md-nav__link">
+      new-hook-template
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../patient-view/" title="patient-view" class="md-nav__link">
       patient-view
     </a>
@@ -343,6 +355,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-log" title="Change Log" class="md-nav__link">
+    Change Log
+  </a>
   
 </li>
       
@@ -467,6 +486,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#change-log" title="Change Log" class="md-nav__link">
+    Change Log
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -485,6 +511,24 @@
                 
                 
                 <h1 id="medication-prescribe"><code>medication-prescribe</code><a class="headerlink" href="#medication-prescribe" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Metadata</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>specificationVersion</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>hookVersion</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
 <h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
 <p>The user is in the process of prescribing one or more new medications.</p>
 <h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
@@ -493,8 +537,9 @@
 <thead>
 <tr>
 <th>Field</th>
-<th>Priority</th>
+<th>Optionality</th>
 <th>Prefetch Token</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -503,19 +548,22 @@
 <td><code>patientId</code></td>
 <td>REQUIRED</td>
 <td>Yes</td>
-<td><em>string</em>.  The FHIR <code>Patient.id</code> of the current patient in context</td>
+<td><em>string</em></td>
+<td>The FHIR <code>Patient.id</code> of the current patient in context</td>
 </tr>
 <tr>
 <td><code>encounterId</code></td>
 <td>OPTIONAL</td>
 <td>Yes</td>
-<td><em>string</em>.  The FHIR <code>Encounter.id</code> of the current encounter in context</td>
+<td><em>string</em></td>
+<td>The FHIR <code>Encounter.id</code> of the current encounter in context</td>
 </tr>
 <tr>
 <td><code>medications</code></td>
 <td>REQUIRED</td>
 <td>No</td>
-<td><em>array</em> DSTU2 - An array of MedicationOrder resources <br/> <em>array</em> STU3 - An array of MedicationRequest resources</td>
+<td><em>array</em></td>
+<td>DSTU2 - An array of MedicationOrder resources <br/> STU3 - An array of MedicationRequest resources</td>
 </tr>
 </tbody>
 </table>
@@ -633,122 +681,152 @@
 111
 112
 113
-114</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="s2">&quot;context&quot;</span><span class="err">:</span><span class="p">{</span>
-  <span class="nt">&quot;patientId&quot;</span> <span class="p">:</span> <span class="s2">&quot;1288992&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;encounterId&quot;</span> <span class="p">:</span> <span class="s2">&quot;89284&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;medications&quot;</span><span class="p">:[</span>  
-    <span class="p">{</span>  
-      <span class="nt">&quot;resourceType&quot;</span><span class="p">:</span><span class="s2">&quot;MedicationOrder&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;smart-MedicationOrder-103&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;draft&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;patient&quot;</span><span class="p">:{</span>  
-        <span class="nt">&quot;reference&quot;</span><span class="p">:</span><span class="s2">&quot;Patient/smart-1081332&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;medicationCodeableConcept&quot;</span><span class="p">:{</span>  
-        <span class="nt">&quot;coding&quot;</span><span class="p">:[</span>  
-          <span class="p">{</span>  
-            <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://www.nlm.nih.gov/research/umls/rxnorm&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;617993&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Amoxicillin 120 MG/ML / clavulanate potassium 8.58 MG/ML Oral Suspension&quot;</span>
-          <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;Amoxicillin 120 MG/ML / clavulanate potassium 8.58 MG/ML Oral Suspension&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;dosageInstruction&quot;</span><span class="p">:[</span>  
-        <span class="p">{</span>  
-          <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;5 mL bid x 10 days&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;timing&quot;</span><span class="p">:{</span>  
-            <span class="nt">&quot;repeat&quot;</span><span class="p">:{</span>  
-              <span class="nt">&quot;boundsPeriod&quot;</span><span class="p">:{</span>  
-                <span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="s2">&quot;2005-01-04&quot;</span>
-              <span class="p">},</span>
-              <span class="nt">&quot;frequency&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-              <span class="nt">&quot;period&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-              <span class="nt">&quot;periodUnits&quot;</span><span class="p">:</span><span class="s2">&quot;d&quot;</span>
-            <span class="p">}</span>
+114
+115
+116
+117
+118
+119
+120
+121</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="s2">&quot;context&quot;</span><span class="err">:</span><span class="p">{</span>
+  <span class="nt">&quot;patientId&quot;</span><span class="p">:</span><span class="s2">&quot;1288992&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;encounterId&quot;</span><span class="p">:</span><span class="s2">&quot;89284&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;medications&quot;</span><span class="p">:{</span>
+    <span class="nt">&quot;resourceType&quot;</span><span class="p">:</span><span class="s2">&quot;Bundle&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;entry&quot;</span><span class="p">:[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;resource&quot;</span><span class="p">:{</span>
+          <span class="nt">&quot;resourceType&quot;</span><span class="p">:</span><span class="s2">&quot;MedicationOrder&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;smart-MedicationOrder-103&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;draft&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;patient&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;reference&quot;</span><span class="p">:</span><span class="s2">&quot;Patient/smart-1081332&quot;</span>
           <span class="p">},</span>
-          <span class="nt">&quot;doseQuantity&quot;</span><span class="p">:{</span>  
-            <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-            <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span>
+          <span class="nt">&quot;medicationCodeableConcept&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;coding&quot;</span><span class="p">:[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://www.nlm.nih.gov/research/umls/rxnorm&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;617993&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Amoxicillin 120 MG/ML / clavulanate potassium 8.58 MG/ML Oral Suspension&quot;</span>
+              <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;Amoxicillin 120 MG/ML / clavulanate potassium 8.58 MG/ML Oral Suspension&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;dosageInstruction&quot;</span><span class="p">:[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;5 mL bid x 10 days&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;timing&quot;</span><span class="p">:{</span>
+                <span class="nt">&quot;repeat&quot;</span><span class="p">:{</span>
+                  <span class="nt">&quot;boundsPeriod&quot;</span><span class="p">:{</span>
+                    <span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="s2">&quot;2005-01-04&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;frequency&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+                  <span class="nt">&quot;period&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="nt">&quot;periodUnits&quot;</span><span class="p">:</span><span class="s2">&quot;d&quot;</span>
+                <span class="p">}</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;doseQuantity&quot;</span><span class="p">:{</span>
+                <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
+                <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">],</span>
+          <span class="nt">&quot;dispenseRequest&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;numberOfRepeatsAllowed&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;quantity&quot;</span><span class="p">:{</span>
+              <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+              <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;expectedSupplyDuration&quot;</span><span class="p">:{</span>
+              <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
+              <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;days&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;d&quot;</span>
+            <span class="p">}</span>
           <span class="p">}</span>
         <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="nt">&quot;dispenseRequest&quot;</span><span class="p">:{</span>  
-        <span class="nt">&quot;numberOfRepeatsAllowed&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="nt">&quot;quantity&quot;</span><span class="p">:{</span>  
-          <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-          <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;expectedSupplyDuration&quot;</span><span class="p">:{</span>  
-          <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
-          <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;days&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;d&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;resource&quot;</span><span class="p">:{</span>
+          <span class="nt">&quot;resourceType&quot;</span><span class="p">:</span><span class="s2">&quot;MedicationOrder&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;smart-MedicationOrder-104&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;draft&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;patient&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;reference&quot;</span><span class="p">:</span><span class="s2">&quot;Patient/smart-1081332&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;medicationCodeableConcept&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;coding&quot;</span><span class="p">:[</span>
+              <span class="p">{</span>
+                <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://www.nlm.nih.gov/research/umls/rxnorm&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;211307&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Azithromycin 20 MG/ML Oral Suspension [Zithromax]&quot;</span>
+              <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;Azithromycin 20 MG/ML Oral Suspension [Zithromax]&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;dosageInstruction&quot;</span><span class="p">:[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;15 mL daily x 3 days&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;timing&quot;</span><span class="p">:{</span>
+                <span class="nt">&quot;repeat&quot;</span><span class="p">:{</span>
+                  <span class="nt">&quot;boundsPeriod&quot;</span><span class="p">:{</span>
+                    <span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="s2">&quot;2005-01-18&quot;</span>
+                  <span class="p">},</span>
+                  <span class="nt">&quot;frequency&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="nt">&quot;period&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="nt">&quot;periodUnits&quot;</span><span class="p">:</span><span class="s2">&quot;d&quot;</span>
+                <span class="p">}</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;doseQuantity&quot;</span><span class="p">:{</span>
+                <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span>
+                <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">],</span>
+          <span class="nt">&quot;dispenseRequest&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;numberOfRepeatsAllowed&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;quantity&quot;</span><span class="p">:{</span>
+              <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+              <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;expectedSupplyDuration&quot;</span><span class="p">:{</span>
+              <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+              <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;days&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;d&quot;</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
         <span class="p">}</span>
       <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="p">{</span>  
-      <span class="nt">&quot;resourceType&quot;</span><span class="p">:</span><span class="s2">&quot;MedicationOrder&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;smart-MedicationOrder-104&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;draft&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;patient&quot;</span><span class="p">:{</span>  
-        <span class="nt">&quot;reference&quot;</span><span class="p">:</span><span class="s2">&quot;Patient/smart-1081332&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;medicationCodeableConcept&quot;</span><span class="p">:{</span>  
-        <span class="nt">&quot;coding&quot;</span><span class="p">:[</span>  
-          <span class="p">{</span>  
-            <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://www.nlm.nih.gov/research/umls/rxnorm&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;211307&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="s2">&quot;Azithromycin 20 MG/ML Oral Suspension [Zithromax]&quot;</span>
-          <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;Azithromycin 20 MG/ML Oral Suspension [Zithromax]&quot;</span>
-      <span class="p">},</span>
-      <span class="nt">&quot;dosageInstruction&quot;</span><span class="p">:[</span>  
-        <span class="p">{</span>  
-          <span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;15 mL daily x 3 days&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;timing&quot;</span><span class="p">:{</span>  
-            <span class="nt">&quot;repeat&quot;</span><span class="p">:{</span>  
-              <span class="nt">&quot;boundsPeriod&quot;</span><span class="p">:{</span>  
-                <span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="s2">&quot;2005-01-18&quot;</span>
-              <span class="p">},</span>
-              <span class="nt">&quot;frequency&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-              <span class="nt">&quot;period&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-              <span class="nt">&quot;periodUnits&quot;</span><span class="p">:</span><span class="s2">&quot;d&quot;</span>
-            <span class="p">}</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;doseQuantity&quot;</span><span class="p">:{</span>  
-            <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span>
-            <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="nt">&quot;dispenseRequest&quot;</span><span class="p">:{</span>  
-        <span class="nt">&quot;numberOfRepeatsAllowed&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="nt">&quot;quantity&quot;</span><span class="p">:{</span>  
-          <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-          <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;mL&quot;</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;expectedSupplyDuration&quot;</span><span class="p">:{</span>  
-          <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-          <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;days&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="s2">&quot;http://unitsofmeasure.org&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="s2">&quot;d&quot;</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table>
+
+<h2 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>Initial Release</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
